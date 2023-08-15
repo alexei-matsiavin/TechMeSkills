@@ -174,21 +174,32 @@
 num = 6
 store = []
 STRATEGY = str(input('Выберите стратегию(LIFO/FIFO)? '))
-while STRATEGY.upper() !='LIFO' and STRATEGY.upper() !='FIFO':
+while STRATEGY.upper() != 'LIFO' and STRATEGY.upper() != 'FIFO':
     STRATEGY = str(input('Выберите стратегию(LIFO/FIFO)? '))
 else:
     while num > 0:
         item = str(input('Что у вас? '))
-        if item.isalpha():
+        if num == 6:
+            store.append({'name': item, 'amount': 0})
+        if item:
+            amount = int(input('Сколько?'))
+            for _ in range(len(store)):
+                if store[_]['name'] == item:
+                    store[_]['amount'] += amount
+                else:
+                    store.append({'name': item, 'amount': amount})
             print('Спасибо')
-            store.append(item)
         else:
             if len(store) == 0:
                 print('Дружеские подбадривания')
             else:
-                if STRATEGY.upper() !='LIFO':
-                    print(f'Вот вам {store.pop()}')
+                if STRATEGY.upper() != 'LIFO':
+                    print(f'Вот вам {store[len(store)-1]["name"]}')
+                    store[len(store) - 1]["amount"] -= 1
                 else:
-                    print(f'Вот вам {store[0]}')
-                    del store[0]
+                    print(f'Вот вам {store[0]["name"]}')
+                    store[0]["amount"] -= 1
+        for _ in range(len(store)):
+            if store[_]['amount'] == 0:
+                del store[_]
         num -= 1
