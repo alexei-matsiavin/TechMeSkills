@@ -195,6 +195,7 @@ else:
             else:
                 if STRATEGY.upper() != 'LIFO':
                     print(f'Вот вам {store[len(store)-1]["name"]}')
+
                     store[len(store) - 1]["amount"] -= 1
                 else:
                     print(f'Вот вам {store[0]["name"]}')
