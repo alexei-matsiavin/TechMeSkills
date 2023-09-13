@@ -123,23 +123,23 @@
 #         num -= 1
 
 # 3.4
-REALTY = [
-    {'price': 23000, 'area': 2200, 'internet': True, 'electricity': True, 'booked': True},
-    {'price': 12200, 'area': 1200, 'internet': True, 'electricity': True, 'booked': False},
-    {'price': 22300, 'area': 2120, 'internet': False, 'electricity': True, 'booked': True},
-    {'price': 15000, 'area': 1600, 'internet': True, 'electricity': False, 'booked': False},
-    {'price': 25400, 'area': 2600, 'internet': False, 'electricity': True, 'booked': False},
-    {'price': 16000, 'area': 1700, 'internet': True, 'electricity': False, 'booked': False},
-    {'price': 34000, 'area': 3600, 'internet': True, 'electricity': True, 'booked': False},
-    {'price': 23000, 'area': 2050, 'internet': True, 'electricity': True, 'booked': True},
-    {'price': 45000, 'area': 3800, 'internet': False, 'electricity': True, 'booked': False},
-    {'price': 23000, 'area': 2150, 'internet': True, 'electricity': False, 'booked': True},
-    {'price': 67000, 'area': 4850, 'internet': True, 'electricity': True, 'booked': True},
-    {'price': 32300, 'area': 2820, 'internet': False, 'electricity': True, 'booked': True},
-    {'price': 19700, 'area': 1800, 'internet': True, 'electricity': False, 'booked': False},
-    {'price': 12300, 'area': 1050, 'internet': False, 'electricity': True, 'booked': True},
-    {'price': 45700, 'area': 4270, 'internet': True, 'electricity': True, 'booked': False},
-]
+# REALTY = [
+#     {'price': 23000, 'area': 2200, 'internet': True, 'electricity': True, 'booked': True},
+#     {'price': 12200, 'area': 1200, 'internet': True, 'electricity': True, 'booked': False},
+#     {'price': 22300, 'area': 2120, 'internet': False, 'electricity': True, 'booked': True},
+#     {'price': 15000, 'area': 1600, 'internet': True, 'electricity': False, 'booked': False},
+#     {'price': 25400, 'area': 2600, 'internet': False, 'electricity': True, 'booked': False},
+#     {'price': 16000, 'area': 1700, 'internet': True, 'electricity': False, 'booked': False},
+#     {'price': 34000, 'area': 3600, 'internet': True, 'electricity': True, 'booked': False},
+#     {'price': 23000, 'area': 2050, 'internet': True, 'electricity': True, 'booked': True},
+#     {'price': 45000, 'area': 3800, 'internet': False, 'electricity': True, 'booked': False},
+#     {'price': 23000, 'area': 2150, 'internet': True, 'electricity': False, 'booked': True},
+#     {'price': 67000, 'area': 4850, 'internet': True, 'electricity': True, 'booked': True},
+#     {'price': 32300, 'area': 2820, 'internet': False, 'electricity': True, 'booked': True},
+#     {'price': 19700, 'area': 1800, 'internet': True, 'electricity': False, 'booked': False},
+#     {'price': 12300, 'area': 1050, 'internet': False, 'electricity': True, 'booked': True},
+#     {'price': 45700, 'area': 4270, 'internet': True, 'electricity': True, 'booked': False},
+# ]
 
 # need_area = int(input('Добрый день, участок какой площади вам необходим? '))
 # min_price = 99999
@@ -154,19 +154,53 @@ REALTY = [
 #     print(f'Самое дешевое предложение {min_price}, площадь участка {cur_area}')
 #
 #
-result = 0
-max_square, res_square = 0, 0
-start_pos, end_pos, summ = 0, 0, 0
-for num in range(0, len(REALTY)):
-    a = REALTY[num]
-    if REALTY[num]['booked'] == False:
-        max_square += REALTY[num]['area']
-        summ += 1
-    else:
-        if res_square < max_square:
-            res_square = max_square
-            end_pos = num
-            start_pos = num - summ
-            summ = 0
-        max_square = 0
-print(f'Добрый день, наибольший возможный участок {res_square} (можно купить участки {start_pos}-{end_pos-1})')
+# result = 0
+# max_square, res_square = 0, 0
+# start_pos, end_pos, summ = 0, 0, 0
+# for num in range(0, len(REALTY)):
+#     a = REALTY[num]
+#     if REALTY[num]['booked'] == False:
+#         max_square += REALTY[num]['area']
+#         summ += 1
+#     else:
+#         if res_square < max_square:
+#             res_square = max_square
+#             end_pos = num
+#             start_pos = num - summ
+#             summ = 0
+#         max_square = 0
+# print(f'Добрый день, наибольший возможный участок {res_square} (можно купить участки {start_pos}-{end_pos-1})')
+
+num = 6
+store = []
+STRATEGY = str(input('Выберите стратегию(LIFO/FIFO)? '))
+while STRATEGY.upper() != 'LIFO' and STRATEGY.upper() != 'FIFO':
+    STRATEGY = str(input('Выберите стратегию(LIFO/FIFO)? '))
+else:
+    while num > 0:
+        item = str(input('Что у вас? '))
+        if num == 6:
+            store.append({'name': item, 'amount': 0})
+        if item:
+            amount = int(input('Сколько?'))
+            for _ in range(len(store)):
+                if store[_]['name'] == item:
+                    store[_]['amount'] += amount
+                else:
+                    store.append({'name': item, 'amount': amount})
+            print('Спасибо')
+        else:
+            if len(store) == 0:
+                print('Дружеские подбадривания')
+            else:
+                if STRATEGY.upper() != 'LIFO':
+                    print(f'Вот вам {store[len(store)-1]["name"]}')
+
+                    store[len(store) - 1]["amount"] -= 1
+                else:
+                    print(f'Вот вам {store[0]["name"]}')
+                    store[0]["amount"] -= 1
+        for _ in range(len(store)):
+            if store[_]['amount'] == 0:
+                del store[_]
+        num -= 1

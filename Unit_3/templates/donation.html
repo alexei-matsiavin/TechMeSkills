@@ -1,0 +1,77 @@
+<!doctype html>
+<!doctype html>
+<html lang="ru" prefix="og: http://ogp.me/ns#">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="index, follow"><link rel="canonical" href="https://bootstrap5.ru/examples/pricing" />
+<meta name="description" content="Пример страницы с ценами, созданной с помощью карточек и имеющей настраиваемый верхний и нижний колонтитулы.">
+<meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors, Alexey Golyagin">
+<meta name="docsearch:language" content="ru">
+<meta name="docsearch:version" content="5.0">
+<title>{{title_name}}</title>
+<!-- Bootstrap core CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
+<link rel="stylesheet" href="https://bootstrap5.ru/css/docs.css">
+<!-- Favicons -->
+<link rel="apple-touch-icon" href="https://bootstrap5.ru/img/favicons/apple-touch-icon.png" sizes="100x100">
+<link rel="icon" href="https://bootstrap5.ru/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="https://bootstrap5.ru/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
+<link rel="manifest" href="https://bootstrap5.ru/img/favicons/manifest.json">
+<link rel="mask-icon" href="https://bootstrap5.ru/img/favicons/safari-pinned-tab.svg" color="#7952b3">
+<link rel="icon" href="https://bootstrap5.ru/img/favicons/favicon.ico">
+<meta name="theme-color" content="#7952b3">
+<!-- Facebook -->
+<meta property="og:url" content="https://bootstrap5.ru/examples/pricing">
+<meta property="og:title" content="Бесплатный bootstrap 5 шаблон - Цены">
+<meta property="og:description" content="Пример страницы с ценами, созданной с помощью карточек и имеющей настраиваемый верхний и нижний колонтитулы.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://bootstrap5.ru/img/examples/pricing.png">
+<meta property="og:image:type" content="image/jpg">
+<meta property="og:image:width" content="1000">
+<meta property="og:image:height" content="500">
+<style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 1000px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style></head>
+  <body>
+    <div class="container">
+      <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
+        <div class="col">
+          <div class="mb-4 shadow-sm">
+          <div class="card-header">
+            <h4 class="my-0 font-weight-normal">{{form_name}}</h4>
+          </div>
+          <div class="card-body text-left">
+              <form action= "" method="POST">
+              <div class="mb-3">
+                  <p class="form-label">Name</p>
+                  <input id="name" name="name" size='30' placeholder="Enter thing's name" autofocus>
+                  <div id="namehelp" class="form-text">Enter thing's name</div>
+              </div>
+              <div class="mb-3">
+                  <p class="form-label">Amount</p>
+                  <input id="amount" name ="amount" size='30' placeholder="Enter amount of things" autofocus>
+                  <div id="amounthelp" class="form-text">Enter amount of things</div>
+                  <button type="submit" class="btn btn-lg btn-block btn-primary">Donate</button>
+              </div>
+              </form>
+          </div>
+        </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
